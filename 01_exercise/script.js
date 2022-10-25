@@ -1,5 +1,4 @@
 let correctAnswer = 0;
-// let numberOfQuestion = questions.length;
 let point = 0;
 let form = document.querySelector("#form");
 let messageParagraph = document.querySelector("#message");
@@ -39,7 +38,6 @@ let currentQuestion = Math.floor(Math.random() * questions.length);
 
 let questionParagraph = document.querySelector("#question");
 questionParagraph.innerText = questions[currentQuestion].question;
-questions[currentQuestion].isAsked = true;
 questions[currentQuestion].options.forEach((option, index) => {
   let input = document.querySelector(`#input-${index}`);
   input.value = option;
@@ -98,7 +96,6 @@ form.addEventListener("click", (e) => {
     if (userAnswer == questions[currentQuestion]?.answer) {
       e.target.classList.add("correct");
       point += 20;
-      console.log(point);
     } else {
       e.target.classList.add("wrong");
     }
@@ -109,12 +106,3 @@ form.addEventListener("click", (e) => {
     document.getElementById("input-3").disabled = true;
   }
 });
-
-// function checkAnswer(e) {
-//   if (e.value == questions[currentQuestion]?.answer) {
-//     e.target.classList.add("correct");
-//     //   point += 20;
-//   } else {
-//     e.target.classList.add("wrong");
-//   }
-// }
